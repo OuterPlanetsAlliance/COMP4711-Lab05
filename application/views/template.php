@@ -12,9 +12,9 @@
         <div class="container">
             <div class="navbar navbar-default">
                 <div class="navbar-inner">
-                    {menubar} 
+                    {menubar}
 				</div>
-            </div>           
+            </div>
             <div id="content">
                 <h1>{pagetitle}</h1>
                 {content}
