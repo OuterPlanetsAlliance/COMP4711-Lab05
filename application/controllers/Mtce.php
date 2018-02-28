@@ -20,17 +20,15 @@ class Mtce extends Application
         foreach ($tasks as $task) {
             if (!empty($task->status))
                 $task->status = $this->app->status($task->status);
-            $result .= $this->parser->parse('oneitem', (array)$task, true);
+            if ($role == ROLE_OWNER)
+                $result .= $this->parser->parse('oneitemx', (array) $task, true);
+            else
+                $result .= $this->parser->parse('oneitem', (array) $task, true);
         }
         $this->data['display_tasks'] = $result;
 
         // and then pass them on
         $this->data['pagebody'] = 'itemlist';
-
-        if ($role == ROLE_OWNER)
-          $result .= $this->parser->parse('oneitemx', (array) $task, true);
-        else
-          $result .= $this->parser->parse('oneitem', (array) $task, true);
 
         $this->render();
     }
@@ -106,6 +104,9 @@ class Mtce extends Application
         $fields = array(
             'ftask'      => form_label('Task description') . form_input('task', $task->task),
             'fpriority'  => form_label('Priority') . form_dropdown('priority', $this->app->priority(), $task->priority),
+            'fsize'  => form_label('Size') . form_dropdown('size', $this->app->size(), $task->size),
+            'fgroup'  => form_label('Group') . form_dropdown('group', $this->app->group(), $task->group),
+            'fstatus'  => form_label('Status') . form_dropdown('status', $this->app->status(), $task->status),
             'zsubmit'    => form_submit('submit', 'Update the TODO task'),
         );
         $this->data = array_merge($this->data, $fields);
