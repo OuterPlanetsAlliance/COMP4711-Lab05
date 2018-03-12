@@ -1,11 +1,12 @@
 <?php
 
  class Task extends Entity {
-    public $id;
-    public $task;
-    public $priority;
-    public $size;
-    public $group;
+    protected $id;
+    protected $task;
+    protected $priority;
+    protected $size;
+    protected $group;
+    protected $status;
 
     public function setId($value) {
         if (empty($value))
@@ -51,4 +52,13 @@
 
       $this->group = $value;
     }
+
+     public function setStatus($value) {
+         if (! is_numeric($value))
+             throw new Exception('Status cannot be empty');
+         if ($value > 2)
+             throw new Exception('Please choose a valid status');
+
+         $this->status = $value;
+     }
 }
