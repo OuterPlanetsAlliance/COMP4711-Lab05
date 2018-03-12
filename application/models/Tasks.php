@@ -2,10 +2,27 @@
 
 class Tasks extends CSV_Model
 {
+    protected $uncompleted;
+    protected $completed;
 
     public function __construct()
     {
         parent::__construct(APPPATH . '../data/tasks.csv', 'id');
+    }
+
+    function add($record) {
+        foreach ($this->all() as $task) {
+            if ($task->status != 2)
+                $undone[] = $task;
+        }
+        $this->uncompleted = sizeof($undone);
+        foreach ($this->all() as $task) {
+            if ($task->status == 2)
+                $done[] = $task;
+        }
+        $this->completed = sizeof($done);
+        if ($this->completed > $this->uncompleted)
+            throw new Exception('More completed than uncompleted.');
     }
 
     function getCategorizedTasks()
