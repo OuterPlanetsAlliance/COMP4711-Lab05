@@ -47,12 +47,13 @@ class XML_Model extends Memory_Model
 	protected function load()
 	{
 
+		/*
 		if (($tasks = simplexml_load_file($this->_origin)) !== FALSE)
 		{
 			foreach ($tasks as $task) {
 				$record = new stdClass();
 				$record->id = (int) $task->id;
-				$record->desc = (string) $task->desc;
+				$record->task = (string) $task->task;
 				$record->priority = (int) $task->priority;
 				$record->size = (int) $task->size;
 				$record->group = (int) $task->group;
@@ -67,12 +68,13 @@ class XML_Model extends Memory_Model
 		// rebuild the keys table
 		$this->reindex();
 
+		*/
 		if (file_exists(realpath($this->_origin))) {
 
 		    $this->xml = simplexml_load_file(realpath($this->_origin));
 		    if ($this->xml === false) {
 			      // error so redirect or handle error
-			      header('location: /404.php/');
+			      header('location: /404.php');
 			      exit;
 			}
 
