@@ -2,15 +2,13 @@
 <tasks>
   <task>
     <id>1</id>
-    <desc>COMP1234 assignment</desc>
+    <desc>comp 3232</desc>
     <priority>3</priority>
-    <size>2</size>
-    <group>2</group>
+    <size>3</size>
+    <group>4</group>
     <deadline>20170219</deadline>
     <status>2</status>
     <flag/>
-    <task>1</task>
-    <submit>Update the TODO task</submit>
   </task>
   <task>
     <id>2</id>
@@ -149,41 +147,37 @@
     <size/>
     <group/>
     <deadline/>
+    <status/>
+    <flag/>
+  </task>
+  <task>
+    <id>16</id>
+    <desc>does</desc>
+    <priority>3</priority>
+    <size>3</size>
+    <group>4</group>
+    <deadline/>
     <status>2</status>
     <flag/>
   </task>
   <task>
-    <id>19</id>
-    <desc/>
-    <priority>1</priority>
-    <size>1</size>
-    <group>1</group>
-    <deadline/>
-    <status>1</status>
-    <flag/>
-    <task>ok now</task>
-    <submit>Update the TODO task</submit>
-  </task>
-  <task>
-    <id>20</id>
-    <desc>it works</desc>
-    <priority>1</priority>
-    <size>1</size>
-    <group>1</group>
-    <deadline/>
-    <status>1</status>
-    <flag>0</flag>
-  </task>
-  <task>
-    <id>21</id>
+    <id>17</id>
     <desc>wumbo</desc>
-    <priority>1</priority>
-    <size>1</size>
+    <priority>3</priority>
+    <size>3</size>
+    <group>4</group>
+    <deadline/>
+    <status>2</status>
+    <flag/>
+  </task>
+  <task>
+    <id>18</id>
+    <desc>something</desc>
+    <priority>2</priority>
+    <size>3</size>
     <group>1</group>
     <deadline/>
     <status>1</status>
     <flag/>
-    <task/>
-    <submit>Update the TODO task</submit>
   </task>
 </tasks>

@@ -97,7 +97,6 @@ class Tasks extends XML_MODEL
 
     protected function store()
     {
-
         if (($handle = fopen($this->_origin, "w")) !== FALSE)
         {
             $xmlDoc = new DOMDocument( "1.0");
@@ -106,11 +105,25 @@ class Tasks extends XML_MODEL
             $data = $xmlDoc->createElement($this->xml->getName());
             foreach($this->_data as $key => $value)
             {
-                $task  = $xmlDoc->createElement($this->xml->children()->getName());
-                foreach ($value as $itemkey => $record ) {
-                    $item = $xmlDoc->createElement($itemkey, htmlspecialchars($record));
-                    $task->appendChild($item);
-                }
+                $task  = $xmlDoc->createElement('task');
+                $id = $xmlDoc->createElement('id', htmlspecialchars($value->id));
+                $desc = $xmlDoc->createElement('desc', htmlspecialchars($value->desc));
+                $priority = $xmlDoc->createElement('priority', htmlspecialchars($value->priority));
+                $size = $xmlDoc->createElement('size', htmlspecialchars($value->size));
+                $group = $xmlDoc->createElement('group', htmlspecialchars($value->group));
+                $deadline = $xmlDoc->createElement('deadline', htmlspecialchars($value->deadline));
+                $status = $xmlDoc->createElement('status', htmlspecialchars($value->status));
+                $flag = $xmlDoc->createElement('flag', htmlspecialchars($value->flag));
+
+                $task->appendChild($id);
+                $task->appendChild($desc);
+                $task->appendChild($priority);
+                $task->appendChild($size);
+                $task->appendChild($group);
+                $task->appendChild($deadline);
+                $task->appendChild($status);
+                $task->appendChild($flag);
+
                 $data->appendChild($task);
             }
             $xmlDoc->appendChild($data);
