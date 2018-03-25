@@ -4,10 +4,11 @@ class Tasks extends XML_MODEL
 {
     protected $uncompleted;
     protected $completed;
+    private $CI; // use this to reference the CI instance
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct(APPPATH . '../data/tasks.xml', 'id');
+        $this->CI = &get_instance(); // retrieve the CI instance
     }
 
     protected function load()
@@ -120,7 +121,7 @@ class Tasks extends XML_MODEL
 
         // substitute the category name, for sorting
         foreach ($undone as $task)
-            $task->group = $this->app->group($task->group);
+            $task->group = $this->CI->app->group($task->group); // use CI to get at the app model
 
         // order them by category
         usort($undone, "orderByCategory");
