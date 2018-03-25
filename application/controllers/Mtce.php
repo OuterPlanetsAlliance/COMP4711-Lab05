@@ -4,6 +4,7 @@ class Mtce extends Application
 {
 
     private $items_per_page = 10;
+    private $CI; // use this to reference the CI instance
 
     public function index()
     {
@@ -94,6 +95,7 @@ class Mtce extends Application
     private function showit()
     {
         $this->load->helper('form');
+        $this->CI = &get_instance();
         $task = $this->session->userdata('task');
         $this->data['id'] = $task->id;
 
@@ -102,11 +104,11 @@ class Mtce extends Application
             $this->data['error'] = '';
 
         $fields = array(
-            'ftask'      => form_label('Task description') . form_input('task', $task->task),
-            'fpriority'  => form_label('Priority') . form_dropdown('priority', $this->app->priority(), $task->priority),
-            'fsize'  => form_label('Size') . form_dropdown('size', $this->app->size(), $task->size),
-            'fgroup'  => form_label('Group') . form_dropdown('group', $this->app->group(), $task->group),
-            'fstatus'  => form_label('Status') . form_dropdown('status', $this->app->status(), $task->status),
+            'ftask'      => form_label('Task description') . form_input('desc', isset($task->task) ? (string) $task->desc : null),
+            'fpriority'  => form_label('Priority') . form_dropdown('priority', $this->CI->app->priority(), $task->priority),
+            'fsize'  => form_label('Size') . form_dropdown('size', $this->CI->app->size(), $task->size),
+            'fgroup'  => form_label('Group') . form_dropdown('group', $this->CI->app->group(), $task->group),
+            'fstatus'  => form_label('Status') . form_dropdown('status', $this->CI->app->status(), $task->status),
             'zsubmit'    => form_submit('submit', 'Update the TODO task'),
         );
         $this->data = array_merge($this->data, $fields);

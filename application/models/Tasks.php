@@ -95,7 +95,32 @@ class Tasks extends XML_MODEL
       $this->reindex();
     }
 
+    protected function store()
+    {
+
+        if (($handle = fopen($this->_origin, "w")) !== FALSE)
+        {
+            $xmlDoc = new DOMDocument( "1.0");
+            $xmlDoc->preserveWhiteSpace = false;
+            $xmlDoc->formatOutput = true;
+            $data = $xmlDoc->createElement($this->xml->getName());
+            foreach($this->_data as $key => $value)
+            {
+                $task  = $xmlDoc->createElement($this->xml->children()->getName());
+                foreach ($value as $itemkey => $record ) {
+                    $item = $xmlDoc->createElement($itemkey, htmlspecialchars($record));
+                    $task->appendChild($item);
+                }
+                $data->appendChild($task);
+            }
+            $xmlDoc->appendChild($data);
+            $xmlDoc->saveXML($xmlDoc);
+            $xmlDoc->save($this->_origin);
+        }
+    }
+
     function add($record) {
+        parent:: add($record);
         foreach ($this->all() as $task) {
             if ($task->status != 2)
                 $undone[] = $task;
