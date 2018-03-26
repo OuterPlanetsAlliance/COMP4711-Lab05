@@ -2,13 +2,13 @@
 <tasks>
   <task>
     <id>1</id>
-    <desc>COMP1234 assignment</desc>
+    <desc>comp 3232</desc>
     <priority>3</priority>
-    <size>2</size>
-    <group>2</group>
+    <size>3</size>
+    <group>4</group>
     <deadline>20170219</deadline>
     <status>2</status>
-    <flag></flag>
+    <flag/>
   </task>
   <task>
     <id>2</id>
@@ -16,7 +16,7 @@
     <priority>1</priority>
     <size>2</size>
     <group>1</group>
-    <deadline></deadline>
+    <deadline/>
     <status>2</status>
     <flag>Update the TODO task</flag>
   </task>
@@ -26,9 +26,9 @@
     <priority>2</priority>
     <size>2</size>
     <group>1</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>4</id>
@@ -36,9 +36,9 @@
     <priority>1</priority>
     <size>2</size>
     <group>1</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>5</id>
@@ -46,9 +46,9 @@
     <priority>1</priority>
     <size>2</size>
     <group>4</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>6</id>
@@ -58,7 +58,7 @@
     <group>4</group>
     <deadline>20170305</deadline>
     <status>2</status>
-    <flag></flag>
+    <flag/>
   </task>
   <task>
     <id>7</id>
@@ -66,9 +66,9 @@
     <priority>2</priority>
     <size>1</size>
     <group>3</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>8</id>
@@ -78,7 +78,7 @@
     <group>3</group>
     <deadline>20161231</deadline>
     <status>1</status>
-    <flag></flag>
+    <flag/>
   </task>
   <task>
     <id>9</id>
@@ -86,9 +86,9 @@
     <priority>2</priority>
     <size>1</size>
     <group>4</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>10</id>
@@ -96,9 +96,9 @@
     <priority>3</priority>
     <size>1</size>
     <group>1</group>
-    <deadline></deadline>
+    <deadline/>
     <status>2</status>
-    <flag></flag>
+    <flag/>
   </task>
   <task>
     <id>11</id>
@@ -106,9 +106,9 @@
     <priority>2</priority>
     <size>1</size>
     <group>1</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>12</id>
@@ -116,8 +116,8 @@
     <priority>2</priority>
     <size>1</size>
     <group>1</group>
-    <deadline></deadline>
-    <status></status>
+    <deadline/>
+    <status/>
     <flag>1</flag>
   </task>
   <task>
@@ -126,9 +126,9 @@
     <priority>1</priority>
     <size>3</size>
     <group>1</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>14</id>
@@ -136,18 +136,48 @@
     <priority>1</priority>
     <size>4</size>
     <group>1</group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <deadline/>
+    <status/>
+    <flag/>
   </task>
   <task>
     <id>15</id>
     <desc>Save the world</desc>
     <priority>1</priority>
-    <size></size>
-    <group></group>
-    <deadline></deadline>
-    <status></status>
-    <flag></flag>
+    <size/>
+    <group/>
+    <deadline/>
+    <status/>
+    <flag/>
+  </task>
+  <task>
+    <id>16</id>
+    <desc>does</desc>
+    <priority>3</priority>
+    <size>3</size>
+    <group>4</group>
+    <deadline/>
+    <status>2</status>
+    <flag/>
+  </task>
+  <task>
+    <id>17</id>
+    <desc>wumbo</desc>
+    <priority>3</priority>
+    <size>3</size>
+    <group>4</group>
+    <deadline/>
+    <status>2</status>
+    <flag/>
+  </task>
+  <task>
+    <id>18</id>
+    <desc>something</desc>
+    <priority>2</priority>
+    <size>3</size>
+    <group>1</group>
+    <deadline/>
+    <status>1</status>
+    <flag/>
   </task>
 </tasks>

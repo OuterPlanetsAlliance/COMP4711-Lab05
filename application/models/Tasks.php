@@ -4,10 +4,11 @@ class Tasks extends XML_MODEL
 {
     protected $uncompleted;
     protected $completed;
+    private $CI; // use this to reference the CI instance
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct(APPPATH . '../data/tasks.xml', 'id');
+        $this->CI = &get_instance(); // retrieve the CI instance
     }
 
     protected function load()
@@ -94,7 +95,45 @@ class Tasks extends XML_MODEL
       $this->reindex();
     }
 
+    protected function store()
+    {
+        if (($handle = fopen($this->_origin, "w")) !== FALSE)
+        {
+            $xmlDoc = new DOMDocument( "1.0");
+            $xmlDoc->preserveWhiteSpace = false;
+            $xmlDoc->formatOutput = true;
+            $data = $xmlDoc->createElement($this->xml->getName());
+            foreach($this->_data as $key => $value)
+            {
+                $task  = $xmlDoc->createElement('task');
+                $id = $xmlDoc->createElement('id', htmlspecialchars($value->id));
+                $desc = $xmlDoc->createElement('desc', htmlspecialchars($value->desc));
+                $priority = $xmlDoc->createElement('priority', htmlspecialchars($value->priority));
+                $size = $xmlDoc->createElement('size', htmlspecialchars($value->size));
+                $group = $xmlDoc->createElement('group', htmlspecialchars($value->group));
+                $deadline = $xmlDoc->createElement('deadline', htmlspecialchars($value->deadline));
+                $status = $xmlDoc->createElement('status', htmlspecialchars($value->status));
+                $flag = $xmlDoc->createElement('flag', htmlspecialchars($value->flag));
+
+                $task->appendChild($id);
+                $task->appendChild($desc);
+                $task->appendChild($priority);
+                $task->appendChild($size);
+                $task->appendChild($group);
+                $task->appendChild($deadline);
+                $task->appendChild($status);
+                $task->appendChild($flag);
+
+                $data->appendChild($task);
+            }
+            $xmlDoc->appendChild($data);
+            $xmlDoc->saveXML($xmlDoc);
+            $xmlDoc->save($this->_origin);
+        }
+    }
+
     function add($record) {
+        parent:: add($record);
         foreach ($this->all() as $task) {
             if ($task->status != 2)
                 $undone[] = $task;
@@ -120,7 +159,7 @@ class Tasks extends XML_MODEL
 
         // substitute the category name, for sorting
         foreach ($undone as $task)
-            $task->group = $this->app->group($task->group);
+            $task->group = $this->CI->app->group($task->group); // use CI to get at the app model
 
         // order them by category
         usort($undone, "orderByCategory");
